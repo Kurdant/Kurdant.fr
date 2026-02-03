@@ -1,0 +1,304 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Design System Variables
+   Style: Cyberpunk Y2K / Acid Graphics / Synthwave
+   Created by: Nyx (UX/UI Specialist)
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─────────────────────────────────────────────────────────────────
+     🎨 COULEURS - PALETTE CYBERPUNK
+     ───────────────────────────────────────────────────────────────── */
+  
+  /* Fonds */
+  --color-bg-primary: #000000;          /* True Black - fond principal */
+  --color-bg-secondary: #0a0a0a;        /* Noir légèrement relevé */
+  --color-bg-tertiary: #111111;         /* Pour les cards/élévations */
+  --color-bg-elevated: #1a1a1a;         /* Éléments surélevés */
+  
+  /* Néons Primaires - Ta signature visuelle */
+  --color-neon-red: #ff0040;            /* Rouge vif - danger, accents forts */
+  --color-neon-pink: #ff00ff;           /* Rose Magenta - énergie principale */
+  --color-neon-violet: #8b00ff;         /* Violet Cyber - profondeur, mystère */
+  
+  /* Néons Secondaires - Accents */
+  --color-neon-cyan: #a855f7;           /* Violet Lavande - tech, liens */
+  --color-neon-green: #00ff41;          /* Vert Terminal - succès, code */
+  --color-neon-yellow: #ffff00;         /* Jaune - warnings */
+  --color-neon-orange: #ff6600;         /* Orange - notifications */
+  
+  /* Dégradés Néon */
+  --gradient-neon-primary: linear-gradient(135deg, var(--color-neon-pink) 0%, var(--color-neon-violet) 100%);
+  --gradient-neon-secondary: linear-gradient(135deg, var(--color-neon-red) 0%, var(--color-neon-pink) 100%);
+  --gradient-neon-cyber: linear-gradient(135deg, var(--color-neon-cyan) 0%, var(--color-neon-violet) 100%);
+  --gradient-neon-matrix: linear-gradient(180deg, var(--color-neon-green) 0%, transparent 100%);
+  
+  /* Texte */
+  --color-text-primary: #ffffff;        /* Blanc pur - titres, texte principal */
+  --color-text-secondary: #b0b0b0;      /* Gris clair - texte secondaire */
+  --color-text-muted: #666666;          /* Gris atténué - labels, hints */
+  --color-text-disabled: #444444;       /* Désactivé */
+  
+  /* États */
+  --color-success: var(--color-neon-green);
+  --color-warning: var(--color-neon-yellow);
+  --color-error: var(--color-neon-red);
+  --color-info: var(--color-neon-cyan);
+  
+  /* Bordures */
+  --color-border-default: #333333;
+  --color-border-hover: var(--color-neon-pink);
+  --color-border-focus: var(--color-neon-cyan);
+  
+  /* ─────────────────────────────────────────────────────────────────
+     🔤 TYPOGRAPHIE
+     ───────────────────────────────────────────────────────────────── */
+  
+  /* Familles de polices */
+  --font-display: 'Orbitron', 'Bebas Neue', sans-serif;      /* Titres massifs */
+  --font-pixel: 'Press Start 2P', 'VT323', monospace;        /* Accents rétro */
+  --font-body: 'Inter', 'Space Grotesk', sans-serif;         /* Corps de texte */
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;     /* Code */
+  
+  /* Tailles - Échelle modulaire (ratio 1.25) */
+  --text-xs: 0.64rem;      /* 10.24px */
+  --text-sm: 0.8rem;       /* 12.8px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.25rem;      /* 20px */
+  --text-xl: 1.563rem;     /* 25px */
+  --text-2xl: 1.953rem;    /* 31.25px */
+  --text-3xl: 2.441rem;    /* 39px */
+  --text-4xl: 3.052rem;    /* 48.8px */
+  --text-5xl: 3.815rem;    /* 61px */
+  --text-6xl: 4.768rem;    /* 76.3px */
+  --text-hero: 6rem;       /* 96px - Pour KURDANT */
+  
+  /* Poids */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-black: 900;
+  
+  /* Hauteur de ligne */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Espacement lettres */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-mega: 0.25em;   /* Pour titres ACID style */
+  
+  /* ─────────────────────────────────────────────────────────────────
+     📐 ESPACEMENTS
+     ───────────────────────────────────────────────────────────────── */
+  
+  --space-0: 0;
+  --space-1: 0.25rem;      /* 4px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-8: 2rem;         /* 32px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-12: 3rem;        /* 48px */
+  --space-16: 4rem;        /* 64px */
+  --space-20: 5rem;        /* 80px */
+  --space-24: 6rem;        /* 96px */
+  --space-32: 8rem;        /* 128px */
+  
+  /* ─────────────────────────────────────────────────────────────────
+     📦 LAYOUT
+     ───────────────────────────────────────────────────────────────── */
+  
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  --content-width: 1200px;
+  --navbar-height: 80px;
+  --footer-height: 200px;
+  
+  /* ─────────────────────────────────────────────────────────────────
+     🔲 BORDURES & RADIUS
+     ───────────────────────────────────────────────────────────────── */
+  
+  --border-width-thin: 1px;
+  --border-width-default: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
+  
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Style cyberpunk = coins plus carrés */
+  --radius-cyber: 2px;
+  
+  /* ─────────────────────────────────────────────────────────────────
+     🌟 EFFETS & OMBRES
+     ───────────────────────────────────────────────────────────────── */
+  
+  /* Ombres standard */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  
+  /* Glow Néon - LA signature Kurdant */
+  --glow-pink: 0 0 10px var(--color-neon-pink),
+               0 0 20px var(--color-neon-pink),
+               0 0 40px rgba(255, 0, 255, 0.4);
+               
+  --glow-violet: 0 0 10px var(--color-neon-violet),
+                 0 0 20px var(--color-neon-violet),
+                 0 0 40px rgba(139, 0, 255, 0.4);
+                 
+  --glow-cyan: 0 0 10px var(--color-neon-cyan),
+               0 0 20px var(--color-neon-cyan),
+               0 0 40px rgba(0, 255, 255, 0.4);
+               
+  --glow-red: 0 0 10px var(--color-neon-red),
+              0 0 20px var(--color-neon-red),
+              0 0 40px rgba(255, 0, 64, 0.4);
+              
+  --glow-green: 0 0 10px var(--color-neon-green),
+                0 0 20px var(--color-neon-green),
+                0 0 40px rgba(0, 255, 65, 0.4);
+  
+  /* Glow subtil (pour hover) */
+  --glow-pink-subtle: 0 0 5px var(--color-neon-pink),
+                      0 0 10px rgba(255, 0, 255, 0.3);
+  --glow-cyan-subtle: 0 0 5px var(--color-neon-cyan),
+                      0 0 10px rgba(0, 255, 255, 0.3);
+  
+  /* ─────────────────────────────────────────────────────────────────
+     ⚡ ANIMATIONS & TRANSITIONS
+     ───────────────────────────────────────────────────────────────── */
+  
+  /* Durées */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+  --duration-slowest: 1000ms;
+  
+  /* Easings */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-cyber: cubic-bezier(0.25, 0.46, 0.45, 0.94);  /* Signature Kurdant */
+  
+  /* Transitions prédéfinies */
+  --transition-fast: all var(--duration-fast) var(--ease-out);
+  --transition-normal: all var(--duration-normal) var(--ease-out);
+  --transition-slow: all var(--duration-slow) var(--ease-out);
+  --transition-color: color var(--duration-fast) var(--ease-out),
+                      background-color var(--duration-fast) var(--ease-out),
+                      border-color var(--duration-fast) var(--ease-out);
+  --transition-transform: transform var(--duration-normal) var(--ease-cyber);
+  --transition-glow: box-shadow var(--duration-normal) var(--ease-out);
+  
+  /* ─────────────────────────────────────────────────────────────────
+     📱 BREAKPOINTS (pour media queries en JS si besoin)
+     ───────────────────────────────────────────────────────────────── */
+  
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* ─────────────────────────────────────────────────────────────────
+     🔢 Z-INDEX SCALE
+     ───────────────────────────────────────────────────────────────── */
+  
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+  --z-max: 9999;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🌓 LIGHT MODE - Thème alternatif
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  /* Fonds inversés */
+  --color-bg-primary: #f5f5f5;
+  --color-bg-secondary: #e8e8e8;
+  --color-bg-tertiary: #ffffff;
+  --color-bg-elevated: #ffffff;
+  
+  /* Texte inversé */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #888888;
+  --color-text-disabled: #aaaaaa;
+  
+  /* Néons légèrement assombris pour contraste */
+  --color-neon-pink: #d600d6;
+  --color-neon-violet: #7000cc;
+  --color-neon-cyan: #00b8b8;
+  --color-neon-red: #cc0033;
+  --color-neon-green: #00cc33;
+  
+  /* Bordures */
+  --color-border-default: #cccccc;
+  
+  /* Ombres plus légères */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Glows plus subtils */
+  --glow-pink: 0 0 8px rgba(214, 0, 214, 0.5);
+  --glow-violet: 0 0 8px rgba(112, 0, 204, 0.5);
+  --glow-cyan: 0 0 8px rgba(0, 184, 184, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ♿ ACCESSIBILITÉ - Respect des préférences utilisateur
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+    --duration-slowest: 0ms;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-text-secondary: #ffffff;
+    --color-text-muted: #cccccc;
+    --color-border-default: #ffffff;
+  }
+}

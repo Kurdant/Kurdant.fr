@@ -1,0 +1,7 @@
+/* HomePage - Kurdant.fr */
+/* Axel (React Senior Developer) */
+
+.home-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}

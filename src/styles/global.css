@@ -1,0 +1,345 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Styles Globaux & Reset
+   Style: Cyberpunk Y2K / Acid Graphics / Synthwave
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Import des variables */
+@import './variables.css';
+
+/* ─────────────────────────────────────────────────────────────────
+   🔄 CSS RESET MODERNE
+   ───────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔤 TYPOGRAPHIE GLOBALE
+   ───────────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: var(--text-5xl);
+  letter-spacing: var(--tracking-wider);
+}
+
+h2 {
+  font-size: var(--text-4xl);
+}
+
+h3 {
+  font-size: var(--text-3xl);
+}
+
+h4 {
+  font-size: var(--text-2xl);
+}
+
+h5 {
+  font-size: var(--text-xl);
+}
+
+h6 {
+  font-size: var(--text-lg);
+}
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-neon-cyan);
+  text-decoration: none;
+  transition: var(--transition-color);
+}
+
+a:hover {
+  color: var(--color-neon-pink);
+  text-shadow: var(--glow-pink-subtle);
+}
+
+strong, b {
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+em, i {
+  font-style: italic;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  color: var(--color-neon-green);
+}
+
+pre {
+  font-family: var(--font-mono);
+  padding: var(--space-4);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  border: var(--border-width-thin) solid var(--color-border-default);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+blockquote {
+  padding-left: var(--space-4);
+  border-left: var(--border-width-thick) solid var(--color-neon-violet);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📋 LISTES
+   ───────────────────────────────────────────────────────────────── */
+
+ul, ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+li {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+/* Listes stylées cyberpunk */
+ul.cyber-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.cyber-list li {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+ul.cyber-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-neon-pink);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🖼️ MÉDIAS
+   ───────────────────────────────────────────────────────────────── */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  border-radius: var(--radius-cyber);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📝 FORMULAIRES
+   ───────────────────────────────────────────────────────────────── */
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: var(--border-width-default) solid var(--color-neon-cyan);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📦 LAYOUT UTILITIES
+   ───────────────────────────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+.section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🎯 SÉLECTION DE TEXTE
+   ───────────────────────────────────────────────────────────────── */
+
+::selection {
+  background-color: var(--color-neon-pink);
+  color: var(--color-bg-primary);
+}
+
+::-moz-selection {
+  background-color: var(--color-neon-pink);
+  color: var(--color-bg-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📜 SCROLLBAR PERSONNALISÉE
+   ───────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-violet);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-pink);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neon-violet) var(--color-bg-secondary);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ♿ ACCESSIBILITÉ
+   ───────────────────────────────────────────────────────────────── */
+
+/* Focus visible pour navigation clavier */
+:focus-visible {
+  outline: var(--border-width-default) solid var(--color-neon-cyan);
+  outline-offset: 2px;
+}
+
+/* Skip link pour accessibilité */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-neon-pink);
+  color: var(--color-bg-primary);
+  font-weight: var(--font-bold);
+  z-index: var(--z-max);
+  transition: var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🎬 ANIMATIONS GLOBALES
+   ───────────────────────────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: var(--glow-pink);
+  }
+  50% {
+    box-shadow: var(--glow-violet);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🌓 TRANSITION DARK/LIGHT MODE
+   ───────────────────────────────────────────────────────────────── */
+
+html {
+  transition: background-color var(--duration-slow) var(--ease-out),
+              color var(--duration-slow) var(--ease-out);
+}
+
+/* Class pour désactiver les transitions pendant le switch */
+html.no-transition,
+html.no-transition * {
+  transition: none !important;
+}

@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Index des Styles
+   Point d'entrée principal pour tous les styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* 
+   📋 ORDRE D'IMPORT (important pour la cascade CSS)
+   
+   1. Variables (tokens de design)
+   2. Typography (fonts et styles de texte)
+   3. Global (reset et styles de base)
+   4. Effects (scanlines, glitch, grain)
+   5. Components (boutons, cards, inputs)
+   6. Utilities (classes utilitaires) - à créer si besoin
+*/
+
+@import './variables.css';
+@import './typography.css';
+@import './global.css';
+@import './effects.css';
+@import './components.css';
+
+/* 
+   ═══════════════════════════════════════════════════════════════════
+   
+   🎨 DESIGN SYSTEM KURDANT.FR
+   
+   Style: Cyberpunk Y2K / Acid Graphics / Synthwave
+   Créé par: Nyx (UX/UI Cyberpunk Specialist)
+   Date: 2026-02-02
+   
+   ═══════════════════════════════════════════════════════════════════
+   
+   📁 STRUCTURE DES FICHIERS:
+   
+   /src/styles/
+   ├── index.css         ← CE FICHIER (point d'entrée)
+   ├── variables.css     ← Tokens de design (couleurs, espacements, etc.)
+   ├── typography.css    ← Fonts et styles de texte
+   ├── global.css        ← Reset CSS et styles globaux
+   ├── effects.css       ← Effets visuels (glitch, scanlines, grain)
+   └── components.css    ← Composants UI de base
+   
+   ═══════════════════════════════════════════════════════════════════
+   
+   🚀 UTILISATION:
+   
+   Dans ton main.jsx ou App.jsx:
+   
+   ```javascript
+   import './styles/index.css';
+   ```
+   
+   C'est tout ! Tous les styles seront disponibles.
+   
+   ═══════════════════════════════════════════════════════════════════
+   
+   📚 DOCUMENTATION RAPIDE:
+   
+   COULEURS NÉON:
+   - var(--color-neon-pink)    → #ff00ff
+   - var(--color-neon-violet)  → #8b00ff
+   - var(--color-neon-cyan)    → #00ffff
+   - var(--color-neon-red)     → #ff0040
+   - var(--color-neon-green)   → #00ff41
+   
+   BOUTONS:
+   - .btn .btn-primary     → Bouton principal rose/violet
+   - .btn .btn-secondary   → Bouton outline
+   - .btn .btn-cyber       → Bouton coins coupés
+   
+   EFFETS:
+   - .glitch               → Effet glitch sur texte (besoin de data-text)
+   - .scanlines            → Overlay scanlines CRT
+   - .grain                → Texture grain photographique
+   - .text-glow-pink       → Lueur néon sur texte
+   
+   CARDS:
+   - .card                 → Card de base
+   - .card-cyber           → Card style cyberpunk
+   - .card-project         → Card pour projets
+   
+   TYPOGRAPHIE:
+   - .text-hero            → Titre principal KURDANT
+   - .text-display-1/2/3   → Titres de sections
+   - .text-pixel           → Style rétro pixel
+   - .text-gradient        → Dégradé sur texte
+   
+   ═══════════════════════════════════════════════════════════════════
+*/

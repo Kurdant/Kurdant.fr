@@ -1,0 +1,241 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Typographie
+   Styles de texte et hiérarchie visuelle
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import './variables.css';
+
+/* ─────────────────────────────────────────────────────────────────
+   📥 IMPORT DES FONTS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Orbitron - Titres principaux (style futuriste) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+/* Press Start 2P - Accents pixel/retro */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Inter - Corps de texte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* JetBrains Mono - Code */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Space Grotesk - Alternative body */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────
+   🔤 CLASSES DE TITRES
+   ───────────────────────────────────────────────────────────────── */
+
+/* Titre Hero - KURDANT principal */
+.text-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: var(--font-black);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-mega);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+/* Titres display (sections) */
+.text-display-1 {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.text-display-2 {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.text-display-3 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🕹️ STYLES PIXEL / RETRO
+   ───────────────────────────────────────────────────────────────── */
+
+.text-pixel {
+  font-family: var(--font-pixel);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-normal);
+  text-transform: uppercase;
+}
+
+.text-pixel-sm {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.text-pixel-lg {
+  font-family: var(--font-pixel);
+  font-size: var(--text-sm);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   💻 STYLES CODE / MONO
+   ───────────────────────────────────────────────────────────────── */
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.text-code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--color-bg-tertiary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-neon-green);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🎌 ACCENTS KANJI / CARACTÈRES DÉCORATIFS
+   ───────────────────────────────────────────────────────────────── */
+
+.text-kanji {
+  font-family: 'Noto Sans JP', 'MS Gothic', sans-serif;
+  color: var(--color-neon-pink);
+  opacity: 0.6;
+  letter-spacing: var(--tracking-wider);
+}
+
+.text-kanji-accent {
+  font-size: var(--text-lg);
+  vertical-align: middle;
+  margin-left: var(--space-2);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📝 STYLES DE PARAGRAPHES
+   ───────────────────────────────────────────────────────────────── */
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.text-body-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.text-body-sm {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+/* Lead paragraph (intro) */
+.text-lead {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: var(--font-light);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🎨 COULEURS DE TEXTE
+   ───────────────────────────────────────────────────────────────── */
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+
+.text-neon-pink { color: var(--color-neon-pink); }
+.text-neon-violet { color: var(--color-neon-violet); }
+.text-neon-cyan { color: var(--color-neon-cyan); }
+.text-neon-red { color: var(--color-neon-red); }
+.text-neon-green { color: var(--color-neon-green); }
+
+/* Dégradé sur texte */
+.text-gradient {
+  background: var(--gradient-neon-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyber {
+  background: var(--gradient-neon-cyber);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📐 ALIGNEMENT & ESPACEMENT
+   ───────────────────────────────────────────────────────────────── */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.text-nowrap { white-space: nowrap; }
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📱 RESPONSIVE TYPOGRAPHY
+   ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .text-hero {
+    font-size: var(--text-4xl);
+    letter-spacing: var(--tracking-wider);
+  }
+  
+  .text-display-1 {
+    font-size: var(--text-4xl);
+  }
+  
+  .text-display-2 {
+    font-size: var(--text-3xl);
+  }
+  
+  .text-display-3 {
+    font-size: var(--text-2xl);
+  }
+  
+  .text-lead {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .text-hero {
+    font-size: var(--text-3xl);
+    letter-spacing: var(--tracking-wide);
+  }
+  
+  .text-pixel {
+    font-size: 6px;
+  }
+}

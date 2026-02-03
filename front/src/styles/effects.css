@@ -1,0 +1,422 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Effets Visuels Cyberpunk
+   Scanlines, Grain, Glitch, Néon Glow
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Import des variables */
+@import './variables.css';
+
+/* ─────────────────────────────────────────────────────────────────
+   📺 SCANLINES - Effet écran CRT
+   Utilisation: Ajouter class "scanlines" sur un conteneur
+   ───────────────────────────────────────────────────────────────── */
+
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Scanlines subtiles (recommandé pour le site entier) */
+.scanlines-subtle::before {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Scanlines animées */
+.scanlines-animated::before {
+  animation: scanlineMove 8s linear infinite;
+}
+
+@keyframes scanlineMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🌫️ GRAIN / NOISE - Texture photographique
+   Utilisation: Ajouter class "grain" sur un conteneur
+   ───────────────────────────────────────────────────────────────── */
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Grain animé (léger mouvement) */
+.grain-animated::after {
+  animation: grainShift 0.5s steps(10) infinite;
+}
+
+@keyframes grainShift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -2%); }
+  20% { transform: translate(2%, 2%); }
+  30% { transform: translate(-1%, 1%); }
+  40% { transform: translate(1%, -1%); }
+  50% { transform: translate(-2%, 2%); }
+  60% { transform: translate(2%, -2%); }
+  70% { transform: translate(-1%, -1%); }
+  80% { transform: translate(1%, 1%); }
+  90% { transform: translate(-2%, -1%); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ⚡ GLITCH - Effet distorsion VHS
+   Utilisation: Ajouter class "glitch" sur du texte
+   ───────────────────────────────────────────────────────────────── */
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: var(--color-neon-cyan);
+  animation: glitchLeft 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.glitch::after {
+  color: var(--color-neon-pink);
+  animation: glitchRight 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchLeft {
+  0%, 80%, 100% { transform: translateX(0); }
+  85% { transform: translateX(-3px); }
+  90% { transform: translateX(3px); }
+  95% { transform: translateX(-2px); }
+}
+
+@keyframes glitchRight {
+  0%, 80%, 100% { transform: translateX(0); }
+  82% { transform: translateX(3px); }
+  87% { transform: translateX(-3px); }
+  92% { transform: translateX(2px); }
+}
+
+/* Glitch subtil (actif seulement au hover) */
+.glitch-hover::before,
+.glitch-hover::after {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glitch-hover:hover::before,
+.glitch-hover:hover::after {
+  opacity: 0.8;
+}
+
+/* Glitch intense (pour moments importants) */
+.glitch-intense::before {
+  animation: glitchIntense 0.5s infinite linear;
+}
+
+.glitch-intense::after {
+  animation: glitchIntense 0.5s infinite linear reverse;
+}
+
+@keyframes glitchIntense {
+  0% { transform: translateX(0) skewX(0deg); }
+  20% { transform: translateX(-4px) skewX(2deg); }
+  40% { transform: translateX(4px) skewX(-2deg); }
+  60% { transform: translateX(-2px) skewX(1deg); }
+  80% { transform: translateX(2px) skewX(-1deg); }
+  100% { transform: translateX(0) skewX(0deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ✨ NÉON GLOW - Lueur sur texte et éléments
+   ───────────────────────────────────────────────────────────────── */
+
+/* Texte avec glow */
+.text-glow-pink {
+  text-shadow: 
+    0 0 5px var(--color-neon-pink),
+    0 0 10px var(--color-neon-pink),
+    0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.text-glow-violet {
+  text-shadow: 
+    0 0 5px var(--color-neon-violet),
+    0 0 10px var(--color-neon-violet),
+    0 0 20px rgba(139, 0, 255, 0.5);
+}
+
+.text-glow-cyan {
+  text-shadow: 
+    0 0 5px var(--color-neon-cyan),
+    0 0 10px var(--color-neon-cyan),
+    0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.text-glow-red {
+  text-shadow: 
+    0 0 5px var(--color-neon-red),
+    0 0 10px var(--color-neon-red),
+    0 0 20px rgba(255, 0, 64, 0.5);
+}
+
+/* Glow animé (pulsation) */
+.text-glow-pulse {
+  animation: textGlowPulse 2s ease-in-out infinite;
+}
+
+@keyframes textGlowPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px var(--color-neon-pink),
+      0 0 10px var(--color-neon-pink),
+      0 0 20px rgba(255, 0, 255, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px var(--color-neon-pink),
+      0 0 20px var(--color-neon-pink),
+      0 0 40px rgba(255, 0, 255, 0.7);
+  }
+}
+
+/* Box avec glow */
+.box-glow-pink {
+  box-shadow: var(--glow-pink);
+}
+
+.box-glow-violet {
+  box-shadow: var(--glow-violet);
+}
+
+.box-glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📺 EFFET VHS - Distorsion complète
+   ───────────────────────────────────────────────────────────────── */
+
+.vhs-effect {
+  position: relative;
+}
+
+.vhs-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(255, 0, 255, 0.03) 50%,
+    transparent 100%
+  );
+  animation: vhsScan 10s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes vhsScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔳 HALFTONE - Trame de points (pour images)
+   ───────────────────────────────────────────────────────────────── */
+
+.halftone {
+  position: relative;
+}
+
+.halftone::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    circle,
+    var(--color-neon-pink) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🌐 WIREFRAME GRID - Grille cyberpunk
+   ───────────────────────────────────────────────────────────────── */
+
+.wireframe-grid {
+  position: relative;
+}
+
+.wireframe-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(var(--color-neon-violet) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-neon-violet) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  pointer-events: none;
+  perspective: 500px;
+  transform: rotateX(60deg);
+  transform-origin: center bottom;
+}
+
+/* Grille animée (mouvement vers le haut) */
+.wireframe-grid-animated::before {
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔲 CYBER BORDER - Bordures stylisées
+   ───────────────────────────────────────────────────────────────── */
+
+.cyber-border {
+  position: relative;
+  border: var(--border-width-default) solid var(--color-neon-pink);
+}
+
+/* Coins coupés style cyberpunk */
+.cyber-border-cut {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+}
+
+/* Bordure animée */
+.cyber-border-animated {
+  position: relative;
+  background: var(--color-bg-tertiary);
+}
+
+.cyber-border-animated::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-neon-primary);
+  z-index: -1;
+  border-radius: inherit;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🎭 UTILITAIRES D'EFFETS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Désactiver les effets (pour performance/accessibilité) */
+.no-effects .scanlines::before,
+.no-effects .grain::after,
+.no-effects .glitch::before,
+.no-effects .glitch::after,
+.no-effects .vhs-effect::before {
+  display: none;
+}
+
+/* Réduire les effets sur mobile */
+@media (max-width: 768px) {
+  .grain::after {
+    opacity: 0.02;
+  }
+  
+  .scanlines::before {
+    opacity: 0.5;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+  }
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .scanlines-animated::before,
+  .grain-animated::after,
+  .glitch::before,
+  .glitch::after,
+  .text-glow-pulse,
+  .vhs-effect::before,
+  .wireframe-grid-animated::before,
+  .cyber-border-animated::before {
+    animation: none;
+  }
+}

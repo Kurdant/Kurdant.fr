@@ -1,0 +1,42 @@
+/* Effet ScanLines - Axel (React Senior Developer) */
+
+.scanlines {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: var(--scanlines-opacity);
+  background: linear-gradient(
+    transparent 50%, 
+    rgba(0, 255, 255, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+/* Option pour désactiver sur mobile pour performance */
+@media (max-width: 768px) {
+  .scanlines {
+    display: none;
+  }
+}
+
+/* Réduire l'effet sur préférence utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .scanlines {
+    animation: none;
+    opacity: 0.5;
+  }
+}

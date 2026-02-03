@@ -1,0 +1,32 @@
+/* Layout Principal - Axel (React Senior Developer) */
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.main-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 0;
+  }
+}
+
+/* Overrides pour les pages spéciales */
+.layout.no-header .main-content {
+  padding-top: 0;
+}
+
+.layout.fullscreen .main-content {
+  padding: 0;
+}

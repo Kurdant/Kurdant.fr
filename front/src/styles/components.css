@@ -1,0 +1,545 @@
+/* ═══════════════════════════════════════════════════════════════════
+   KURDANT.FR - Composants UI de Base
+   Boutons, Cards, Inputs, Badges, etc.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import './variables.css';
+
+/* ─────────────────────────────────────────────────────────────────
+   🔘 BOUTONS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Base commune à tous les boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  text-decoration: none;
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--radius-cyber);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Bouton Primary (Néon Pink) ── */
+.btn-primary {
+  background: var(--gradient-neon-primary);
+  color: var(--color-text-primary);
+  border-color: var(--color-neon-pink);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: var(--glow-pink);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ── Bouton Secondary (Outline) ── */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-neon-pink);
+  border-color: var(--color-neon-pink);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 0, 255, 0.1);
+  box-shadow: var(--glow-pink-subtle);
+}
+
+/* ── Bouton Tertiary (Ghost) ── */
+.btn-tertiary {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: transparent;
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  color: var(--color-neon-cyan);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+/* ── Bouton Cyber (Style cyberpunk avec coins coupés) ── */
+.btn-cyber {
+  background: var(--color-bg-tertiary);
+  color: var(--color-neon-cyan);
+  border-color: var(--color-neon-cyan);
+  clip-path: polygon(
+    0 8px,
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%
+  );
+}
+
+.btn-cyber:hover:not(:disabled) {
+  background: var(--color-neon-cyan);
+  color: var(--color-bg-primary);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ── Tailles ── */
+.btn-sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+}
+
+.btn-lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base);
+}
+
+/* ── Bouton avec icône seulement ── */
+.btn-icon {
+  padding: var(--space-3);
+  aspect-ratio: 1;
+}
+
+/* ── Effet de scan sur hover ── */
+.btn-scan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-scan:hover::before {
+  left: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🃏 CARDS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Card de base */
+.card {
+  background: var(--color-bg-tertiary);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-neon-pink);
+  transform: translateY(-4px);
+}
+
+/* Card cyberpunk avec frame */
+.card-cyber {
+  background: var(--color-bg-secondary);
+  border: var(--border-width-default) solid var(--color-neon-violet);
+  border-radius: var(--radius-cyber);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-neon-primary);
+}
+
+.card-cyber:hover {
+  box-shadow: var(--glow-violet);
+}
+
+/* Card pour projet */
+.card-project {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-project-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  filter: grayscale(30%);
+  transition: var(--transition-normal);
+}
+
+.card-project:hover .card-project-image {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.card-project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    transparent 100%
+  );
+}
+
+.card-project-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.card-project-tech {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📝 INPUTS & FORMS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Input de base */
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-cyber);
+  transition: var(--transition-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:hover {
+  border-color: var(--color-text-muted);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-neon-cyan);
+  box-shadow: var(--glow-cyan-subtle);
+}
+
+/* Input cyber style */
+.input-cyber {
+  background: var(--color-bg-primary);
+  border-color: var(--color-neon-violet);
+  clip-path: polygon(
+    0 6px,
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%
+  );
+}
+
+/* Textarea */
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Label */
+.label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: var(--space-6);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🏷️ BADGES & TAGS
+   ───────────────────────────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-pixel);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+  border: var(--border-width-thin) solid var(--color-border-default);
+}
+
+/* Variantes de couleur */
+.badge-pink {
+  background: rgba(255, 0, 255, 0.2);
+  color: var(--color-neon-pink);
+  border-color: var(--color-neon-pink);
+}
+
+.badge-violet {
+  background: rgba(139, 0, 255, 0.2);
+  color: var(--color-neon-violet);
+  border-color: var(--color-neon-violet);
+}
+
+.badge-cyan {
+  background: rgba(0, 255, 255, 0.2);
+  color: var(--color-neon-cyan);
+  border-color: var(--color-neon-cyan);
+}
+
+.badge-green {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--color-neon-green);
+  border-color: var(--color-neon-green);
+}
+
+.badge-red {
+  background: rgba(255, 0, 64, 0.2);
+  color: var(--color-neon-red);
+  border-color: var(--color-neon-red);
+}
+
+/* Tag tech (pour skills/projets) */
+.tag-tech {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-primary);
+  color: var(--color-neon-green);
+  border: var(--border-width-thin) solid var(--color-neon-green);
+  border-radius: var(--radius-sm);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   📊 BARRES DE PROGRESSION (Skills)
+   ───────────────────────────────────────────────────────────────── */
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: var(--border-width-thin) solid var(--color-border-default);
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--gradient-neon-primary);
+  border-radius: var(--radius-full);
+  transition: width 1s var(--ease-cyber);
+  position: relative;
+}
+
+/* Effet néon sur la barre */
+.progress-bar-glow {
+  box-shadow: 
+    0 0 10px var(--color-neon-pink),
+    inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Barre animée */
+.progress-bar-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Variantes de couleur */
+.progress-bar-violet {
+  background: var(--color-neon-violet);
+}
+
+.progress-bar-cyan {
+  background: var(--color-neon-cyan);
+}
+
+.progress-bar-green {
+  background: var(--color-neon-green);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔲 FRAMES & CONTAINERS CYBERPUNK
+   ───────────────────────────────────────────────────────────────── */
+
+/* Frame style fiche d'identité */
+.frame-identity {
+  background: var(--color-bg-secondary);
+  border: var(--border-width-default) solid var(--color-neon-pink);
+  padding: var(--space-6);
+  position: relative;
+}
+
+.frame-identity::before {
+  content: 'SUBJECT';
+  position: absolute;
+  top: calc(-1 * var(--space-3));
+  left: var(--space-4);
+  background: var(--color-bg-primary);
+  padding: 0 var(--space-2);
+  font-family: var(--font-pixel);
+  font-size: var(--text-xs);
+  color: var(--color-neon-pink);
+  text-transform: uppercase;
+}
+
+/* Frame terminal */
+.frame-terminal {
+  background: var(--color-bg-primary);
+  border: var(--border-width-thin) solid var(--color-neon-green);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.frame-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-secondary);
+  border-bottom: var(--border-width-thin) solid var(--color-neon-green);
+}
+
+.frame-terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+}
+
+.frame-terminal-dot-red { background: var(--color-neon-red); }
+.frame-terminal-dot-yellow { background: var(--color-neon-yellow); }
+.frame-terminal-dot-green { background: var(--color-neon-green); }
+
+.frame-terminal-body {
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  color: var(--color-neon-green);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔀 DIVIDERS & SÉPARATEURS
+   ───────────────────────────────────────────────────────────────── */
+
+.divider {
+  width: 100%;
+  height: var(--border-width-thin);
+  background: var(--color-border-default);
+  margin: var(--space-8) 0;
+}
+
+.divider-neon {
+  height: var(--border-width-default);
+  background: var(--gradient-neon-primary);
+  box-shadow: var(--glow-pink-subtle);
+}
+
+.divider-dashed {
+  height: 0;
+  border: none;
+  border-top: var(--border-width-default) dashed var(--color-border-default);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   🔄 LOADERS & SPINNERS
+   ───────────────────────────────────────────────────────────────── */
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-bg-tertiary);
+  border-top-color: var(--color-neon-pink);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Loader style cyberpunk */
+.loader-cyber {
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top-color: var(--color-neon-pink);
+  border-right-color: var(--color-neon-violet);
+  border-radius: var(--radius-full);
+  animation: spin 0.8s linear infinite;
+  box-shadow: var(--glow-pink-subtle);
+}
+
+/* Barre de chargement */
+.loading-bar {
+  width: 200px;
+  height: 4px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.loading-bar::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: var(--gradient-neon-primary);
+  animation: loadingSlide 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
