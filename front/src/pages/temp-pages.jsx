@@ -1,14 +1,5 @@
 import React from 'react';
 
-const AboutPage = () => (
-  <div className="about-page">
-    <div className="container">
-      <h1>À Propos</h1>
-      <p>Page à développer...</p>
-    </div>
-  </div>
-);
-
 const BlogPage = () => (
   <div className="blog-page">
     <div className="container">
@@ -45,20 +36,9 @@ const GamePage = () => (
   </div>
 );
 
-const ContactPage = () => (
-  <div className="contact-page">
-    <div className="container">
-      <h1>Contact</h1>
-      <p>Page à développer...</p>
-    </div>
-  </div>
-);
-
 export {
-  AboutPage,
   BlogPage,
   BlogPostPage,
   GamesPage,
-  GamePage,
-  ContactPage
+  GamePage
 };
